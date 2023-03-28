@@ -8,12 +8,7 @@ import jakarta.inject.Singleton
 class TaskService(
     private val taskRepository: TaskRepository,
 ) {
-    fun save() {
-        val task = Task(
-            title = "Create board",
-            description = "Create a new board to manage tasks",
-            done = false
-        )
-        taskRepository.save(task)
+    fun save(task: Task): Task {
+        return taskRepository.save(task)
     }
 }
