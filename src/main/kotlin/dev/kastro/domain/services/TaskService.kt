@@ -11,4 +11,12 @@ class TaskService(
     fun save(task: Task): Task {
         return taskRepository.save(task)
     }
+
+    fun list(): MutableIterable<Task> {
+        return taskRepository.findAll()
+    }
+
+    fun listByDone(status: Boolean): MutableIterable<Task> {
+        return taskRepository.findByDone(status)
+    }
 }

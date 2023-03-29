@@ -5,4 +5,6 @@ import io.micronaut.data.annotation.Repository
 import io.micronaut.data.repository.CrudRepository
 
 @Repository
-interface TaskRepository : CrudRepository<Task, Long>
+interface TaskRepository : CrudRepository<Task, Long> {
+    fun findByDone(status: Boolean): MutableIterable<Task>
+}
